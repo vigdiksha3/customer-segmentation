@@ -14,8 +14,8 @@ app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 app.secret_key = 'customer_segmentation_secret_key_change_in_production'
 
 # Import local helper files
-from utils.predictor import predict_segment
-from utils.recommendation import get_strategy
+from predictor import predict_segment
+from recommendation import get_strategy
 from database import get_db, init_db
 
 # Initialize PostgreSQL database tables on startup

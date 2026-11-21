@@ -1,4 +1,3 @@
-
 import os
 import sys
 from functools import wraps
@@ -205,10 +204,10 @@ def history():
     conn.close()
     return render_template('history.html', records=records)
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-
+    
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,6 +2,10 @@ import os
 import joblib
 import numpy as np
 
+
+# Dynamically obtain the root directory path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load pre-trained .pkl files generated from Google Colab
 MODEL_PATH = os.path.join('model', 'model (3).pkl')
 SCALER_PATH = os.path.join('model', 'scaler (4).pkl')
@@ -18,9 +22,9 @@ def predict_segment(gender, age, income, spending):
     features = np.array([[gender_numeric, age, income, spending]])
 
     # 3. Load Colab models and predict
-    if os.path.exists(MODEL_PATH) and os.path.exists(SCALER_PATH):
-        scaler = joblib.load(SCALER_PATH)
-        model = joblib.load(MODEL_PATH)
+    if os.path.exists('model (3).pkl') and os.path.exists('scaler (4).pkl'):
+        scaler = joblib.load('scaler (4).pkl')
+        model = joblib.load('model (3).pkl')
         
         # Scale features using StandardScaler from Colab
         scaled_features = scaler.transform(features)
